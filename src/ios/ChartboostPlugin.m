@@ -109,10 +109,11 @@ static NSString *TEST_APP_SIGNATURE = @"37f4e779dc43837e7a6645002dffdeab0a97369b
 
 - (void) showRewardedVideoAd: (CDVInvokedUrlCommand*)command {
 	NSString* location = [command.arguments objectAtIndex:0];
+	 NSString* userId = [command.arguments objectAtIndex:1];
 	NSLog(@"%@", location);
 
     //[self.commandDelegate runInBackground:^{
-		[self _showRewardedVideoAd:location];
+	 [self _showRewardedVideoAd:location userId:userId];
     //}];
 }
 
@@ -209,6 +210,7 @@ static NSString *TEST_APP_SIGNATURE = @"37f4e779dc43837e7a6645002dffdeab0a97369b
 -(void) _showRewardedVideoAd:(NSString *)location {
 	self.rewardedVideoAdPreload = NO;	
 	
+	[Chartboost setCustomId:userId];
 	[Chartboost showRewardedVideo:location];
 }
 
