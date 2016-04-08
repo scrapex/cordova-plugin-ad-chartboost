@@ -296,13 +296,13 @@ module.exports = {
             [location]
         ); 
     },
-    showRewardedVideoAd: function(location) {
+    showRewardedVideoAd: function(location, userId) {
 		cordova.exec(
 			null,
             null,
             'ChartboostPlugin',
             'showRewardedVideoAd',
-            [location]
+           [location, userId]
         ); 
     },
 //cranberrygame start; deprecated	
